@@ -26,4 +26,10 @@ target 'LyfeStyler' do
   pod 'Fabric', '~> 1.7.13'
   pod 'Crashlytics', '~> 3.10.9'
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 end
