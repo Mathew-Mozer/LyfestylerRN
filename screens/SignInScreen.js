@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppRegistry, StyleSheet, Text, View, Alert, Button } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Alert, Button,AsyncStorage } from 'react-native';
 import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
 
 
@@ -28,7 +28,7 @@ export default class SignInScreen extends React.Component {
       const userInfo = await GoogleSignin.signInSilently();
       this.setState({ userInfo, error: null });
       console.log("Found User?",userInfo ? 'App' : 'Auth')
-      this.props.navigation.navigate(userInfo ? 'App' : 'Auth');
+      //this.props.navigation.navigate(userInfo ? 'App' : 'Auth');
     } catch (error) {
       const errorMessage =
         error.code === statusCodes.SIGN_IN_REQUIRED ? 'Please sign in 1.0 :)' : error.message;
@@ -124,21 +124,24 @@ export default class SignInScreen extends React.Component {
     const text = `${error.toString()} ${error.code ? error.code : ''}`;
     return <Text>{text}</Text>;
   }
-  _storeUserData = async (data) => {
+  _storeUserData = async (token,expiration) => {
+    console.log("attempting to save data")
     try {
-      await AsyncStorage.setItem('userData', data);
-      Console.log("Saved User Data")
+      await AsyncStorage.setItem('userData', token);
+      console.log("Saved User Data",token)
     } catch (error) {
       // Error saving data
+      console.log("save data error",error)
     }
   };
   _signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      _storeUserData(userInfo);
+      console.log(JSON.stringify(userInfo))
+      this._storeUserData(userInfo.accessToken,userInfo.accessTokenExpirationDate);
       this.setState({ userInfo, error: null });
-      this.props.navigation.navigate('App');
+      //this.props.navigation.navigate('App');
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // sign in was cancelled

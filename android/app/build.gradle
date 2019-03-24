@@ -154,6 +154,8 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-firebase')
+    implementation project(':react-native-camera')
     implementation project(':react-native-vector-icons')
   implementation project(':react-native-google-signin')
   implementation project(':react-native-gesture-handler')
@@ -162,7 +164,7 @@ dependencies {
   implementation fileTree(dir: "libs", include: ["*.jar"])
   implementation "com.android.support:appcompat-v7:23.0.1"
   implementation(project(":react-native-google-signin"))
-
+  implementation 'com.android.support:support-media-compat:27.1.1'
 /* ----------------------------
    *    REACT NATIVE FIREBASE
    * ---------------------------- */
@@ -228,5 +230,9 @@ task copyDownloadableDepsToLibs(type: Copy) {
   from configurations.compile
   into 'libs'
 }
-
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-v4:27.1.0'
+    }
+}
 apply plugin: 'com.google.gms.google-services'

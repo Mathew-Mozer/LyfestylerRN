@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "966011176383",
+    "firebase_url": "https://lyfestyler-28ee9.firebaseio.com",
+    "project_id": "lyfestyler-28ee9",
+    "storage_bucket": "lyfestyler-28ee9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966011176383:android:bbe387cd464156db",
+        "android_client_info": {
+          "package_name": "com.typhonpacific.lyfestyler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966011176383-40h717ihl0qc51u4h0bkv176vm1cjkna.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTVn7qJYO6WcMOXHXrKskvcVGtAZvlXb4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,7 +4,7 @@ buildscript {
     buildToolsVersion = "28.0.2"
     minSdkVersion = 18
     compileSdkVersion = 27
-    targetSdkVersion = 26
+    targetSdkVersion = 27
     supportLibVersion = "27.1.1"
     supportLibVersion = "27.1.1"
     googlePlayServicesAuthVersion = "15.0.1"
@@ -25,6 +25,7 @@ buildscript {
     // in the individual module build.gradle files
     classpath 'com.android.tools.build:gradle:3.1.2' // <--- use this version or newer
     classpath 'com.google.gms:google-services:3.2.1'
+    
   }
 }
 
@@ -44,3 +45,4 @@ task wrapper(type: Wrapper) {
   gradleVersion = '4.6'
   distributionUrl = distributionUrl.replace("bin", "all")
 }
+

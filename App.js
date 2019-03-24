@@ -5,8 +5,9 @@ import firebase from 'react-native-firebase';
 import HomeScreen from './screens/HomeScreen'
 import SignInScreen from './screens/SignInScreen'
 import AuthLoadingScreen from './screens/AuthLoadingScreen'
+import BarcodeScan from './components/BarcodeScan';
 
-const AppStack = createStackNavigator({ Home: HomeScreen});
+const AppStack = createStackNavigator({ Home: HomeScreen,BarcodeScan: BarcodeScan});
 const AuthStack = createStackNavigator({ SignIn: SignInScreen });
 
 export default createAppContainer(createSwitchNavigator(
